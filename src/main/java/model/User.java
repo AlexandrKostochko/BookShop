@@ -8,22 +8,25 @@ public class User {
     private String password;
     private String name;
     private int idUser;
+    private Role role;
 
     public User() {
 
     }
 
-    public User(String name, String login, String password) {
+    public User(String name, String login, String password, Role role) {
         this.name = name;
         this.login = login;
         this.password = password;
+        this.role = role;
     }
 
-    public User(String login, String password, String name, int idUser) {
+    public User(String login, String password, String name, int idUser, Role role) {
         this.login = login;
         this.password = password;
         this.name = name;
         this.idUser = idUser;
+        this.role = role;
     }
 
     public String getLogin() {
@@ -56,6 +59,14 @@ public class User {
 
     public void setIdUser(int idUser) {
         this.idUser = idUser;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     @Override

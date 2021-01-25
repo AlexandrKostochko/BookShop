@@ -1,6 +1,6 @@
 package servlet;
 
-import storage.InMemoryAuthorStorage;
+import storage.InMemoryBookStorage;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,11 +12,11 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/authors")
 public class AuthorsServlet extends HttpServlet {
 
-    private InMemoryAuthorStorage inMemoryAuthorStorage = InMemoryAuthorStorage.getInstance();
+    InMemoryBookStorage inMemoryBookStorage = InMemoryBookStorage.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("authors", inMemoryAuthorStorage.getAllAuthors());
+        req.setAttribute("authors", inMemoryBookStorage.getAuthors());
         req.getServletContext().getRequestDispatcher("/authors.jsp").forward(req, resp);
     }
 }

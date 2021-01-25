@@ -15,7 +15,8 @@
     <br>
     <ul>
         <c:forEach items="${sessionScope.basket.getAll()}" var="book">
-            <li>${book.name}</li>
+            <li><a href="book/view?id=${book.id}">${book.name}
+            </a></li>
         </c:forEach>
     </ul>
 </div>

@@ -1,5 +1,6 @@
 package filter;
 
+import model.Role;
 import model.User;
 import storage.InMemoryUserStorage;
 
@@ -28,7 +29,15 @@ public class AccountFilter extends HttpFilter {
                 if (name == null) {
                     User user = inMemoryUserStorage.getByLogin(login);
                     if (user != null && user.getPassword().equals(password)) {
-                        chain.doFilter(req, res);
+                        req.getSession().setAttribute("user", user);
+                        req.getSession().setAttribute("isGuest", false);
+                        req.getSession().setAttribute("isUser", true);
+                        if (user.getRole().equals(Role.ADMIN)){
+                            req.getSession().setAttribute("isAdmin", true);
+                            chain.doFilter(req, res);
+                        } else {
+                            res.sendRedirect("/");
+                        }
                     } else {
                         req.setAttribute("message", "Incorrect login or password");
                         req.getServletContext().getRequestDispatcher("/auth.jsp").forward(req, res);

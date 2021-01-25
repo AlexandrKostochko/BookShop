@@ -1,10 +1,14 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Author {
 
     private int id;
     private String name;
     private String description;
+    private List<Book> books = new ArrayList<>();
 
     public Author() {
 
@@ -46,6 +50,16 @@ public class Author {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void addBook(Book book){
+        if(!books.contains(book)){
+            books.add(book);
+        }
+    }
+
+    public List<Book> getBookList() {
+        return new ArrayList<>(books);
     }
 
     @Override

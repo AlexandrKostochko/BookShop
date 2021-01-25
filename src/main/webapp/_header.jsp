@@ -19,7 +19,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/">Home</a>
                 </li>
-                <c:if test="${sessionScope.user == null}">
+                <c:if test="${sessionScope.isGuest}">
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Hello guest</a>
                     </li>
@@ -30,7 +30,7 @@
                         <a class="nav-link" href="/auth">Authorization</a>
                     </li>
                 </c:if>
-                <c:if test="${sessionScope.user != null}">
+                <c:if test="${sessionScope.isUser}">
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Hello ${sessionScope.user.name}</a>
                     </li>
@@ -40,6 +40,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/logout">Logout</a>
                     </li>
+                </c:if>
+                <c:if test="${sessionScope.isAdmin}">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                        aria-expanded="false">

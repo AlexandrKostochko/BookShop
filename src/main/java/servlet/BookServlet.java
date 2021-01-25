@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/books/book")
+@WebServlet(urlPatterns = "/authors/books/book")
 public class BookServlet extends HttpServlet {
 
     private InMemoryBookStorage inMemoryBookStorage = InMemoryBookStorage.getInstance();
