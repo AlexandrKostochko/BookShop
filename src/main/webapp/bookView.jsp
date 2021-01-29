@@ -11,7 +11,7 @@
     <p>Description ${requestScope.book.description}</p>
     <p>Price ${requestScope.book.price}</p>
     <p>
-        Author: <a href="/authors/author?id=${requestScope.book.author.id}">${requestScope.book.author.name}</a>
+        Author: <a href="/author?id=${requestScope.book.author.id}">${requestScope.book.author.name}</a>
     </p>
     <form action="/basket" method="post">
         <c:if test="${sessionScope.user != null}">

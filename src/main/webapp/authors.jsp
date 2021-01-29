@@ -9,7 +9,7 @@
 <h2>Authors</h2>
 <ul>
     <c:forEach items="${requestScope.authors}" var="author">
-        <li><a href="/authors/author?id=${author.id}">${author.name}</a></li>
+        <li><a href="/author?id=${author.id}">${author.name}</a></li>
     </c:forEach>
 </ul>
 </body>

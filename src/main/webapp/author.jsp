@@ -24,7 +24,7 @@
             <p><strong>List of books:</strong></p>
             <ol>
                 <c:forEach items="${requestScope.author.bookList}" var="book">
-                    <li><a href="book/view?id=${book.id}">${book.name}
+                    <li><a href="/book/view?id=${book.id}">${book.name}
                     </a></li>
                 </c:forEach>
             </ol>
